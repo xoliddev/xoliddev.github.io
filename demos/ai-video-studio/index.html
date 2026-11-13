@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Video Studio: Uzbek AI videos | xoliddev</title>
+<meta name="x-title-en" content="AI Video Studio: Uzbek AI videos | xoliddev">
+<meta name="x-title-uz" content="AI Video Studio: o'zbekcha AI videolar | xoliddev">
+<meta name="description" content="Uzbek videos made with AI and code, from script to MP4: audio-drama reels, an animated history film, a Google Flow short film, a voxel timelapse and brand reels.">
+<meta name="theme-color" content="#0b1322">
+<link rel="canonical" href="https://xoliddev.github.io/demos/ai-video-studio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xoliddev">
+<meta property="og:title" content="AI Video Studio: Uzbek AI videos">
+<meta property="og:description" content="Uzbek videos made with AI and code, from script to MP4: audio-drama reels, an animated history film, a Google Flow short film, a voxel timelapse and brand reels.">
+<meta property="og:url" content="https://xoliddev.github.io/demos/ai-video-studio/">
+<meta property="og:image" content="https://xoliddev.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Video Studio: Uzbek AI videos">
+<meta name="twitter:description" content="Uzbek videos made with AI and code, from script to MP4: audio-drama reels, an animated history film, a Google Flow short film, a voxel timelapse and brand reels.">
+<meta name="twitter:image" content="https://xoliddev.github.io/assets/img/og.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>(function(){var d=document.documentElement,g=function(k){try{return localStorage.getItem(k)}catch(e){return null}};d.dataset.lang=g('lang')||((navigator.language||'').toLowerCase().indexOf('uz')===0?'uz':'en');d.dataset.theme=g('theme')||'dark';})();</script>
+<style>
+.vgroup{padding-top:36px;padding-bottom:8px}.vgroup:last-of-type{padding-bottom:72px}
+.vhead{max-width:760px;margin-bottom:18px}.vhead h2{font-size:clamp(22px,3vw,30px);margin-bottom:8px}.vhead p{margin:0}
+.vgrid{display:grid;gap:18px}
+.vgrid.v{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:760px){.vgrid.v{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1080px){.vgrid.v{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(min-width:900px){.vgrid.h{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vid{margin:0;display:grid;gap:10px;align-content:start}
+.vid-poster,.vid video{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;cursor:pointer}
+.vid.v .vid-poster,.vid.v video{aspect-ratio:9/16}.vid.h .vid-poster,.vid.h video{aspect-ratio:16/9}
+.vid-poster img{width:100%;height:100%;object-fit:cover;transition:transform .4s,opacity .3s;opacity:.92}
+.vid-poster:hover img{transform:scale(1.03);opacity:1}
+.vid-play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(10,16,28,.66);display:grid;place-items:center;color:#fff;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25)}
+.vid-play svg{width:26px;height:26px;margin-left:3px}
+.vid-dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:12.5px;padding:2px 7px;border-radius:6px;font-variant-numeric:tabular-nums}
+.vid video{object-fit:contain;cursor:auto}
+.vid figcaption{display:grid;gap:3px;font-size:14px;line-height:1.45}.vid figcaption b{font-size:15px;color:var(--text)}
+.vid figcaption a{color:var(--accent);font-size:13.5px;text-decoration:none;width:max-content}.vid figcaption a:hover{text-decoration:underline}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+</style>
+</head>
+<body data-root="../../">
+<header class="site-head"></header>
+<main id="main">
+  <section class="wrap demo-hero">
+    <a class="crumb" href="../../#open-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span class="l-en">All projects</span><span class="l-uz">Barcha loyihalar</span></a>
+    <h1>AI Video Studio</h1>
+    <p class="lede l-en">Videos in Uzbek made entirely in code: a script becomes Gemini TTS voices, a timeline, frames rendered by headless Chrome and a final ffmpeg mix. None of them were cut in a video editor.</p>
+    <p class="lede l-uz">To'liq kod orqali yaratilgan o'zbekcha videolar: ssenariy Gemini TTS ovozlariga, vaqt chizig'iga, headless Chrome chizgan kadrlarga va yakuniy ffmpeg miksiga aylanadi. Hech biri video muharrirda yig'ilmagan.</p>
+    <div class="demo-notice">
+      <p class="l-en"><b>Final renders.</b> These are the finished videos, re-encoded to 720p H.264 for the web. Tap a poster to load and play it; nothing downloads until you do.</p>
+      <p class="l-uz"><b>Yakuniy renderlar.</b> Bular tayyor videolar, veb uchun 720p H.264 ga qayta kodlangan. Yuklab ijro etish uchun posterni bosing, bosmaguningizcha hech narsa yuklanmaydi.</p>
+      <div class="btn-row"><a class="btn btn-small" href="https://github.com/xoliddev/ai-video-studio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span class="l-en">View code</span><span class="l-uz">Kodni ko'rish</span></a></div>
+    </div>
+  </section>
+  <section class="wrap"><nav class="jump" aria-label="Sections"><a class="chip" href="#series"><span class="l-en">Uzbek audio-drama series</span><span class="l-uz">O'zbekcha audio-serial</span></a><a class="chip" href="#uhud"><span class="l-en">Uhud g'azoti: sabr va itoat qissasi</span><span class="l-uz">Uhud g'azoti: sabr va itoat qissasi</span></a><a class="chip" href="#films"><span class="l-en">Films</span><span class="l-uz">Filmlar</span></a><a class="chip" href="#qa"><span class="l-en">Islam Q&A explainer</span><span class="l-uz">Islom haqida savol-javob</span></a><a class="chip" href="#reels"><span class="l-en">ab.dveloper reels</span><span class="l-uz">ab.dveloper reels</span></a></nav></section>
+  <section class="wrap vgroup" id="series">
+    <div class="vhead"><h2><span class="l-en">Uzbek audio-drama series</span><span class="l-uz">O'zbekcha audio-serial</span></h2><p class="muted"><span class="l-en">Mystery reels voiced by Gemini TTS in Uzbek, with procedural sound design and subtitles. Every frame is an HTML page rendered by headless Chrome.</span><span class="l-uz">Gemini TTS bilan o'zbekcha ovozlangan sirli reels, protsedural ovoz dizayni va subtitrlar bilan. Har bir kadr headless Chrome chizgan HTML sahifa.</span></p></div>
+    <div class="vgrid v">
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/tungi-taksi.mp4" data-poster="media/tungi-taksi.jpg" aria-label="Play Tungi Taksi: Oynadagi Yomg&#x27;ir">
+            <img src="media/tungi-taksi.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:54</span>
+          </button>
+          <figcaption><b lang="uz">Tungi Taksi: Oynadagi Yomg&#x27;ir</b><span class="muted"><span class="l-en">A taxi driver and a passenger at 02:40 in the rain.</span><span class="l-uz">Yomg'irli tunda soat 02:40 da taksichi va yo'lovchi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uzbek-audio-series" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/sirli-yolovchi.mp4" data-poster="media/sirli-yolovchi.jpg" aria-label="Play Sirli Yo&#x27;lovchi">
+            <img src="media/sirli-yolovchi.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:55</span>
+          </button>
+          <figcaption><b lang="uz">Sirli Yo&#x27;lovchi</b><span class="muted"><span class="l-en">A driver picks up a hitchhiker on an empty road.</span><span class="l-uz">Haydovchi bo'm-bo'sh yo'lda yo'lovchini oladi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uzbek-audio-series" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/qorovulxona-ep1.mp4" data-poster="media/qorovulxona-ep1.jpg" aria-label="Play Tog&#x27;dagi Qorovulxona: Qor Bo&#x27;roni, 1-qism">
+            <img src="media/qorovulxona-ep1.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:36</span>
+          </button>
+          <figcaption><b lang="uz">Tog&#x27;dagi Qorovulxona: Qor Bo&#x27;roni, 1-qism</b><span class="muted"><span class="l-en">A stranger knocks on an old watchman's mountain hut in a blizzard.</span><span class="l-uz">Bo'ronda keksa qorovulning tog'dagi kulbasini begona odam taqillatadi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uzbek-audio-series" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/qorovulxona-ep1-remaster.mp4" data-poster="media/qorovulxona-ep1-remaster.jpg" aria-label="Play Tog&#x27;dagi Qorovulxona, 1-qism (kinematik versiya)">
+            <img src="media/qorovulxona-ep1-remaster.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:32</span>
+          </button>
+          <figcaption><b lang="uz">Tog&#x27;dagi Qorovulxona, 1-qism (kinematik versiya)</b><span class="muted"><span class="l-en">The same episode re-mastered with AI key-art shots and new sound design.</span><span class="l-uz">Xuddi shu qism AI kadrlar va yangi ovoz dizayni bilan qayta ishlangan.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uzbek-audio-series" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/qorovulxona-ep2.mp4" data-poster="media/qorovulxona-ep2.jpg" aria-label="Play Tog&#x27;dagi Qorovulxona, 2-qism: Ostonadagi To&#x27;qnashuv">
+            <img src="media/qorovulxona-ep2.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:33</span>
+          </button>
+          <figcaption><b lang="uz">Tog&#x27;dagi Qorovulxona, 2-qism: Ostonadagi To&#x27;qnashuv</b><span class="muted"><span class="l-en">The armed men reach the door. Three Gemini voices.</span><span class="l-uz">Qurollangan odamlar eshikka yetib keladi. Uchta Gemini ovozi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uzbek-audio-series" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+    </div>
+  </section>
+  <section class="wrap vgroup" id="uhud">
+    <div class="vhead"><h2><span class="l-en">Uhud g'azoti: sabr va itoat qissasi</span><span class="l-uz">Uhud g'azoti: sabr va itoat qissasi</span></h2><p class="muted"><span class="l-en">An animated documentary in three parts about the Battle of Uhud (3 AH), narrated in Uzbek. The Prophet Muhammad (s.a.v.) and his companions (r.a.) are never depicted: people appear only as distant, faceless silhouettes, and there is no music.</span><span class="l-uz">Hijriy 3-yildagi Uhud g'azoti haqida uch qismli animatsion hujjatli film, o'zbek tilida. Payg'ambarimiz Muhammad (s.a.v.) va sahobalar (r.a.) tasvirlanmaydi: odamlar faqat uzoqdagi yuzsiz siluet sifatida ko'rinadi, musiqa ishlatilmagan.</span></p></div>
+    <div class="vgrid v">
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/uhud-1.mp4" data-poster="media/uhud-1.jpg" aria-label="Play Uhud g&#x27;azoti, 1-qism">
+            <img src="media/uhud-1.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:09</span>
+          </button>
+          <figcaption><b lang="uz">Uhud g&#x27;azoti, 1-qism</b><span class="muted"><span class="l-en">Makkah gathers an army after Badr and marches north.</span><span class="l-uz">Badrdan so'ng Makka qo'shin to'plab, shimolga yo'l oladi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uhud-animated-film" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/uhud-2.mp4" data-poster="media/uhud-2.jpg" aria-label="Play Uhud g&#x27;azoti, 2-qism">
+            <img src="media/uhud-2.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:24</span>
+          </button>
+          <figcaption><b lang="uz">Uhud g&#x27;azoti, 2-qism</b><span class="muted"><span class="l-en">The council in Madinah and the archers' hill.</span><span class="l-uz">Madinadagi maslahat va kamonchilar tepaligi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uhud-animated-film" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/uhud-3.mp4" data-poster="media/uhud-3.jpg" aria-label="Play Uhud g&#x27;azoti, 3-qism">
+            <img src="media/uhud-3.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">2:04</span>
+          </button>
+          <figcaption><b lang="uz">Uhud g&#x27;azoti, 3-qism</b><span class="muted"><span class="l-en">The lesson of patience and obedience.</span><span class="l-uz">Sabr va itoat saboqi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/uhud-animated-film" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+    </div>
+  </section>
+  <section class="wrap vgroup" id="films">
+    <div class="vhead"><h2><span class="l-en">Films</span><span class="l-uz">Filmlar</span></h2><p class="muted"><span class="l-en">Two longer pieces made a different way: one assembled from AI video clips, one rendered with OpenGL in Python.</span><span class="l-uz">Boshqacha usulda yaratilgan ikkita uzunroq ish: biri AI video kliplardan yig'ilgan, biri Python'da OpenGL bilan chizilgan.</span></p></div>
+    <div class="vgrid h">
+        <figure class="vid h">
+          <button type="button" class="vid-poster" data-src="media/maymun-panjasi.mp4" data-poster="media/maymun-panjasi.jpg" aria-label="Play Maymun panjasi">
+            <img src="media/maymun-panjasi.jpg" alt="" loading="lazy" width="960" height="540">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">4:45</span>
+          </button>
+          <figcaption><b lang="uz">Maymun panjasi</b><span class="muted"><span class="l-en">W. W. Jacobs' The Monkey's Paw retold with Uzbek dialogue: 32 shots generated in Google Flow from reference images and edited with ffmpeg.</span><span class="l-uz">V. V. Jeykobsning “Maymun panjasi” hikoyasi o'zbekcha dialog bilan: Google Flow'da referens rasmlardan yaratilgan 32 kadr, ffmpeg bilan yig'ilgan.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/monkeys-paw-flow-film" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid h">
+          <button type="button" class="vid-poster" data-src="media/voxel-castle.mp4" data-poster="media/voxel-castle.jpg" aria-label="Play Voxel castle timelapse">
+            <img src="media/voxel-castle.jpg" alt="" loading="lazy" width="960" height="540">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">3:49</span>
+          </button>
+          <figcaption><b lang="uz">Voxel castle timelapse</b><span class="muted"><span class="l-en">A Minecraft-style castle build. World, textures, camera and sound effects are generated by one Python + OpenGL script. Shown at 4× speed (the full render is 15:17).</span><span class="l-uz">Minecraft uslubidagi qal'a qurilishi. Dunyo, teksturalar, kamera va ovoz effektlari bitta Python + OpenGL skriptida yaratilgan. 4× tezlikda (to'liq render 15:17).</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/voxel-castle-timelapse" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+    </div>
+  </section>
+  <section class="wrap vgroup" id="qa">
+    <div class="vhead"><h2><span class="l-en">Islam Q&A explainer</span><span class="l-uz">Islom haqida savol-javob</span></h2><p class="muted"><span class="l-en">“Islom haqida 5 savol”: a vertical explainer with animated answer cards, narrated in Uzbek.</span><span class="l-uz">“Islom haqida 5 savol”: animatsion javob kartalari bilan vertikal tushuntirish videosi, o'zbek tilida.</span></p></div>
+    <div class="vgrid v">
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/islom-savol-javob.mp4" data-poster="media/islom-savol-javob.jpg" aria-label="Play Islom haqida 5 savol">
+            <img src="media/islom-savol-javob.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">1:39</span>
+          </button>
+          <figcaption><b lang="uz">Islom haqida 5 savol</b><span class="muted"><span class="l-en">Five common questions about Islam, answered in short cards.</span><span class="l-uz">Islom haqidagi beshta keng tarqalgan savolga qisqa javoblar.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/islam-qa-video" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+    </div>
+  </section>
+  <section class="wrap vgroup" id="reels">
+    <div class="vhead"><h2><span class="l-en">ab.dveloper reels</span><span class="l-uz">ab.dveloper reels</span></h2><p class="muted"><span class="l-en">Instagram reels for my ab.dveloper brand about Telegram shop bots for small businesses. The phone screens and order flows are HTML/CSS/SVG animation driven by the voice-over timeline.</span><span class="l-uz">ab.dveloper brendim uchun kichik biznesga Telegram do'kon botlari haqidagi Instagram reels. Telefon ekranlari va buyurtma oqimlari ovoz vaqt chizig'iga bog'langan HTML/CSS/SVG animatsiya.</span></p></div>
+    <div class="vgrid v">
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/libos.mp4" data-poster="media/libos.jpg" aria-label="Play Do&#x27;kon Telegram ichida">
+            <img src="media/libos.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">0:47</span>
+          </button>
+          <figcaption><b lang="uz">Do&#x27;kon Telegram ichida</b><span class="muted"><span class="l-en">From a pile of Instagram DMs to a Telegram catalog with sizes, cart and payment.</span><span class="l-uz">Instagram'dagi savollar uyumidan o'lcham, savat va to'lovli Telegram katalogigacha.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/ab-dveloper-reels" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/soxta-chek.mp4" data-poster="media/soxta-chek.jpg" aria-label="Play Soxta chek">
+            <img src="media/soxta-chek.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">0:42</span>
+          </button>
+          <figcaption><b lang="uz">Soxta chek</b><span class="muted"><span class="l-en">Fake payment screenshots versus a bot that checks the payment itself.</span><span class="l-uz">Soxta to'lov skrinshotlari va to'lovni o'zi tekshiradigan bot.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/ab-dveloper-reels" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/ai-sotuvchi.mp4" data-poster="media/ai-sotuvchi.jpg" aria-label="Play 23:47. Kechasi ham sotadigan AI">
+            <img src="media/ai-sotuvchi.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">0:59</span>
+          </button>
+          <figcaption><b lang="uz">23:47. Kechasi ham sotadigan AI</b><span class="muted"><span class="l-en">A midnight voice message answered by an AI seller that knows the stock.</span><span class="l-uz">Yarim tundagi ovozli xabarga omborni biladigan AI sotuvchi javob beradi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/ab-dveloper-reels" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/buyurtma-sayohati.mp4" data-poster="media/buyurtma-sayohati.jpg" aria-label="Play Bitta buyurtmaning sayohati">
+            <img src="media/buyurtma-sayohati.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">0:32</span>
+          </button>
+          <figcaption><b lang="uz">Bitta buyurtmaning sayohati</b><span class="muted"><span class="l-en">One coffee order travelling through customer, barista, courier and payment.</span><span class="l-uz">Bitta qahva buyurtmasi mijoz, barista, kuryer va to'lov bo'ylab sayohati.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/ab-dveloper-reels" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+        <figure class="vid v">
+          <button type="button" class="vid-poster" data-src="media/uch-kun.mp4" data-poster="media/uch-kun.jpg" aria-label="Play Uch kun">
+            <img src="media/uch-kun.jpg" alt="" loading="lazy" width="540" height="960">
+            <span class="vid-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="vid-dur">0:35</span>
+          </button>
+          <figcaption><b lang="uz">Uch kun</b><span class="muted"><span class="l-en">A bakery keeps taking orders while its owner is away for three days.</span><span class="l-uz">Egasi uch kun yo'qligida ham novvoyxona buyurtma olishda davom etadi.</span></span><a href="https://github.com/xoliddev/ai-video-studio/tree/main/ab-dveloper-reels" target="_blank" rel="noopener"><span class="l-en">Source</span><span class="l-uz">Manba kodi</span></a></figcaption>
+        </figure>
+    </div>
+  </section>
+  <script>
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".vid-poster");
+    if (!b) return;
+    document.querySelectorAll(".vid video").forEach(function (v) { v.pause(); });
+    var v = document.createElement("video");
+    v.src = b.dataset.src; v.poster = b.dataset.poster; v.controls = true; v.playsInline = true; v.preload = "auto";
+    v.setAttribute("aria-label", b.getAttribute("aria-label").replace(/^Play /, ""));
+    b.replaceWith(v);
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  });
+  document.addEventListener("play", function (e) { document.querySelectorAll(".vid video").forEach(function (v) { if (v !== e.target) v.pause(); }); }, true);
+  </script>
+</main>
+<footer class="site-foot"></footer>
+<script src="../../assets/js/site.js"></script>
+</body>
+</html>

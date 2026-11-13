@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Chain bot: play the live demo | xoliddev</title>
+<meta name="x-title-en" content="Word Chain bot: play the live demo | xoliddev">
+<meta name="x-title-uz" content="Word Chain bot: jonli demo | xoliddev">
+<meta name="description" content="Play the English word-chain Telegram bot in your browser: the real game rules, the real 38 000-word list and CEFR-levelled bot opponents, ported from Python to JavaScript.">
+<meta name="theme-color" content="#0b1322">
+<link rel="canonical" href="https://xoliddev.github.io/demos/wordchain-bot/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xoliddev">
+<meta property="og:title" content="Word Chain bot: play the live demo">
+<meta property="og:description" content="The real game rules and word list of a Telegram word-chain bot, playable in the browser.">
+<meta property="og:url" content="https://xoliddev.github.io/demos/wordchain-bot/">
+<meta property="og:image" content="https://xoliddev.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xoliddev.github.io/assets/img/og.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/tg.css">
+<script>(function(){var d=document.documentElement,g=function(k){try{return localStorage.getItem(k)}catch(e){return null}};d.dataset.lang=g('lang')||((navigator.language||'').toLowerCase().indexOf('uz')===0?'uz':'en');d.dataset.theme=g('theme')||'dark';})();</script>
+<style>
+  .status { display: grid; gap: 4px; font-size: 15px; }
+  .rule-steps { counter-reset: s; list-style: none; padding: 0 !important; }
+  .rule-steps li { counter-increment: s; position: relative; padding-left: 34px; }
+  .rule-steps li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; background: var(--surface-2); color: var(--accent); }
+</style>
+</head>
+<body data-root="../../">
+<header class="site-head"></header>
+<main id="main">
+  <section class="wrap demo-hero">
+    <a class="crumb" href="../../#open-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span class="l-en">All projects</span><span class="l-uz">Barcha loyihalar</span></a>
+    <h1>Word Chain bot</h1>
+    <p class="lede l-en">An English word-chain game for Telegram. Each word starts with the last letter of the previous one, and the bot opponent only knows the words of its CEFR level. Play a full game against it here.</p>
+    <p class="lede l-uz">Telegram uchun inglizcha so'z zanjiri o'yini. Har bir so'z oldingi so'zning oxirgi harfi bilan boshlanadi, bot-raqib esa faqat o'z CEFR darajasidagi so'zlarni biladi. Shu yerda unga qarshi to'liq o'yin o'ynang.</p>
+    <div class="demo-notice">
+      <p class="l-en"><b>Interactive browser demo.</b> The game engine, bot opponent and word list were ported from the bot's Python code to JavaScript and run entirely in your browser. Every message and button is the bot's real Uzbek text. Nothing is sent to Telegram.</p>
+      <p class="l-uz"><b>Brauzerdagi interaktiv demo.</b> O'yin qoidalari, bot-raqib va so'zlar ro'yxati botning Python kodidan JavaScript'ga ko'chirilgan va to'liq brauzeringizda ishlaydi. Har bir xabar va tugma botning haqiqiy matni. Telegram'ga hech narsa yuborilmaydi.</p>
+      <a class="btn btn-small" href="https://github.com/xoliddev/wordchain-bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span class="l-en">View code</span><span class="l-uz">Kodni ko'rish</span></a>
+    </div>
+  </section>
+
+  <section class="wrap demo-grid">
+    <div id="chat" aria-label="Word Chain bot chat"></div>
+    <aside class="side">
+      <section>
+        <h2 class="l-en">How to play</h2><h2 class="l-uz">Qanday o'ynaladi</h2>
+        <ol class="rule-steps">
+          <li class="l-en">Press <b>🤖 Bot bilan o'ynash</b>, then pick the bot's level. Change your own level with <b>📶 Daraja</b>.</li>
+          <li class="l-uz"><b>🤖 Bot bilan o'ynash</b> tugmasini bosing va bot darajasini tanlang. O'z darajangizni <b>📶 Daraja</b> orqali o'zgartirasiz.</li>
+          <li class="l-en">Type any English word. The bot answers with a word that starts with your last letter.</li>
+          <li class="l-uz">Istalgan inglizcha so'zni yozing. Bot oxirgi harfingiz bilan boshlanadigan so'z bilan javob beradi.</li>
+          <li class="l-en">Three wrong words, a timeout or <b>🏳️ Taslim bo'lish</b> loses the game. <b>💡 Yordam</b> gives a masked hint twice per game.</li>
+          <li class="l-uz">Uchta noto'g'ri so'z, vaqt tugashi yoki <b>🏳️ Taslim bo'lish</b> mag'lubiyat. <b>💡 Yordam</b> har o'yinda ikki marta yashirin maslahat beradi.</li>
+        </ol>
+      </section>
+      <section>
+        <h2 class="l-en">Current game</h2><h2 class="l-uz">Joriy o'yin</h2>
+        <div class="panel status" id="game-status" aria-live="polite"></div>
+      </section>
+      <section>
+        <h2 class="l-en">Try these openers</h2><h2 class="l-uz">Shu so'zlardan boshlang</h2>
+        <div class="chips">
+          <button class="chip" data-say="apple">apple</button>
+          <button class="chip" data-say="garden">garden</button>
+          <button class="chip" data-say="yesterday">yesterday</button>
+          <button class="chip" data-say="kitchen">kitchen</button>
+          <button class="chip" data-say="ox">ox</button>
+        </div>
+      </section>
+      <section>
+        <h2 class="l-en">Real vs simulated</h2><h2 class="l-uz">Haqiqiy va simulyatsiya</h2>
+        <ul class="real-list">
+          <li><span class="tag tag-real"><span class="l-en">Real</span><span class="l-uz">Haqiqiy</span></span><span class="l-en">Rules from <code>engine.py</code>, the bot persona and word choice from <code>ai.py</code>, timers, hints and summaries from <code>game_manager.py</code>, all texts and keyboards.</span><span class="l-uz"><code>engine.py</code> qoidalari, <code>ai.py</code> dagi bot xarakteri va so'z tanlash, <code>game_manager.py</code> dagi vaqt, yordam va yakuniy hisobot, barcha matn va tugmalar.</span></li>
+          <li><span class="tag tag-real"><span class="l-en">Real</span><span class="l-uz">Haqiqiy</span></span><span class="l-en">The bot's frequency-ranked word list: <b id="dict-size">38 390</b> words, levelled A1–C2 by rank.</span><span class="l-uz">Botning chastota bo'yicha tartiblangan so'zlari: <b>38 390</b> ta so'z, darajasi o'rniga qarab A1–C2.</span></li>
+          <li><span class="tag tag-sim"><span class="l-en">Simulated</span><span class="l-uz">Simulyatsiya</span></span><span class="l-en">Player-vs-player matchmaking and invites need other people, so the queue offers a bot game after 5 s instead of 45 s. Stats are kept in your browser instead of SQLite. Uzbek translations in the summary come from Google Translate in production and are left out here.</span><span class="l-uz">Odam bilan o'yin va taklif uchun boshqa o'yinchilar kerak, shuning uchun navbat 45 emas, 5 soniyadan keyin bot bilan o'ynashni taklif qiladi. Statistika SQLite o'rniga brauzeringizda saqlanadi. Yakundagi o'zbekcha tarjimalar productionda Google Translate'dan olinadi, bu yerda ko'rsatilmaydi.</span></li>
+        </ul>
+      </section>
+    </aside>
+  </section>
+</main>
+<footer class="site-foot"></footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../../assets/js/tg.js"></script>
+<script src="wordchain.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oila Hamyon: family finance bot demo | xoliddev</title>
+<meta name="x-title-en" content="Oila Hamyon: family finance bot demo | xoliddev">
+<meta name="x-title-uz" content="Oila Hamyon: oilaviy hisob boti demosi | xoliddev">
+<meta name="description" content="A Telegram bot that keeps a family's money in plain Uzbek: write 'nonga 15 ming' and it records the expense, wallet and category. Interactive browser demo with the bot's real texts.">
+<meta name="theme-color" content="#0b1322">
+<link rel="canonical" href="https://xoliddev.github.io/demos/oila-hamyon/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xoliddev">
+<meta property="og:title" content="Oila Hamyon: family finance bot demo">
+<meta property="og:description" content="A Telegram bot that keeps a family's money in plain Uzbek: write 'nonga 15 ming' and it records the expense, wallet and category. Interactive browser demo with the bot's real texts.">
+<meta property="og:url" content="https://xoliddev.github.io/demos/oila-hamyon/">
+<meta property="og:image" content="https://xoliddev.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Oila Hamyon: family finance bot demo">
+<meta name="twitter:description" content="A Telegram bot that keeps a family's money in plain Uzbek: write 'nonga 15 ming' and it records the expense, wallet and category. Interactive browser demo with the bot's real texts.">
+<meta name="twitter:image" content="https://xoliddev.github.io/assets/img/og.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/tg.css">
+<script>(function(){var d=document.documentElement,g=function(k){try{return localStorage.getItem(k)}catch(e){return null}};d.dataset.lang=g('lang')||((navigator.language||'').toLowerCase().indexOf('uz')===0?'uz':'en');d.dataset.theme=g('theme')||'dark';})();</script>
+<style>.ledger{display:grid;gap:6px;font-size:15px}.ledger div{display:flex;justify-content:space-between;gap:12px}.ledger .sub{color:var(--muted);border-top:1px solid var(--line-soft);padding-top:6px;margin-top:2px}</style>
+</head>
+<body data-root="../../">
+<header class="site-head"></header>
+<main id="main">
+  <section class="wrap demo-hero">
+    <a class="crumb" href="../../#open-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span class="l-en">All projects</span><span class="l-uz">Barcha loyihalar</span></a>
+    <h1>Oila Hamyon</h1>
+    <p class="lede l-en">A family accountant inside Telegram. Write “nonga 15 ming” the way you'd say it, and the bot records the expense with its category and wallet, keeps every wallet balanced to the tiyin and answers questions about the month.</p>
+    <p class="lede l-uz">Telegram ichidagi oilaviy hisobchi. “nonga 15 ming” deb odatdagidek yozing: bot xarajatni kategoriya va hamyoni bilan yozadi, har bir hamyonni tiyinigacha aniq yuritadi va oy haqidagi savollarga javob beradi.</p>
+    <div class="demo-notice">
+      <p class="l-en"><b>Interactive browser demo.</b> It uses the bot's real texts, keyboards and reply formats and runs entirely in your browser. The AI parsing happens on the server in production, so a small rule-based parser stands in for it here.</p>
+      <p class="l-uz"><b>Brauzerdagi interaktiv demo.</b> Botning haqiqiy matnlari, tugmalari va javob ko'rinishlari ishlatilgan, hammasi brauzeringizda ishlaydi. Productionda matnni server tomonida AI tushunadi, bu yerda uning o'rnida kichik qoidaviy parser ishlaydi.</p>
+      <div class="btn-row"><a class="btn btn-small" href="https://github.com/xoliddev/oila-hamyon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span class="l-en">View code</span><span class="l-uz">Kodni ko'rish</span></a></div>
+    </div>
+  </section>
+  <section class="wrap demo-grid">
+    <div id="chat" aria-label="Oila Hamyon bot chat"></div>
+    <aside class="side">
+      <section>
+        <h2><span class="l-en">Write like you'd tell a person</span><span class="l-uz">Odamga aytgandek yozing</span></h2>
+        <p class="muted"><span class="l-en">Finish the two-step sign-up in the chat, then send any of these, or your own. The menu buttons below the chat work too.</span><span class="l-uz">Chatda ikki qadamli ro'yxatdan o'tishni tugating, keyin shulardan birini yoki o'zingiznikini yuboring. Chat ostidagi menyu tugmalari ham ishlaydi.</span></p>
+        <div class="chips"><button class="chip" data-say="nonga 15 ming">nonga 15 ming</button><button class="chip" data-say="non 2 ta 4500 dan, sut 12 ming">non 2 ta 4500 dan, sut 12 ming</button><button class="chip" data-say="kecha kartadan svetga 186 400 to'ladim">kecha kartadan svetga 186 400 to'ladim</button><button class="chip" data-say="maosh tushdi 6 mln 450 ming kartaga">maosh tushdi 6 mln 450 ming kartaga</button><button class="chip" data-say="naqd pulim 850 ming, kartada 3 200 000, 300 dollar bor">naqd pulim 850 ming, kartada 3 200 000, 300 dollar bor</button><button class="chip" data-say="bankomatdan 1 mln yechdim">bankomatdan 1 mln yechdim</button><button class="chip" data-say="Akmalga 500 ming qarz berdim">Akmalga 500 ming qarz berdim</button><button class="chip" data-say="Akmal 100 ming qaytardi">Akmal 100 ming qaytardi</button><button class="chip" data-say="taksi 18 ming, kofe 25 ming">taksi 18 ming, kofe 25 ming</button><button class="chip" data-say="bu oy ovqatga qancha ketdi?">bu oy ovqatga qancha ketdi?</button></div>
+      </section>
+      <section>
+        <h2><span class="l-en">Wallets right now</span><span class="l-uz">Hozirgi hamyonlar</span></h2>
+        <div class="panel ledger" id="ledger" aria-live="polite"></div>
+      </section>
+      <section>
+        <h2><span class="l-en">Real vs simulated</span><span class="l-uz">Haqiqiy va simulyatsiya</span></h2>
+        <ul class="real-list">
+          <li><span class="tag tag-real"><span class="l-en">Real</span><span class="l-uz">Haqiqiy</span></span><span class="l-en">Onboarding, welcome, help and menu texts, every keyboard, the default categories and wallets, and the exact reply layouts of <code>render_saved</code>, the period report, balance, history and debts screens.</span><span class="l-uz">Ro'yxatdan o'tish, xush kelibsiz, yordam va menyu matnlari, barcha tugmalar, standart kategoriya va hamyonlar, <code>render_saved</code>, davr hisoboti, balans, tarix va qarzlar ekranlarining aynan o'sha ko'rinishi.</span></li>
+          <li><span class="tag tag-real"><span class="l-en">Real</span><span class="l-uz">Haqiqiy</span></span><span class="l-en">Ledger behaviour: balances per wallet, multi-item totals, undo and redo of a whole message, debts that close when repaid, balance corrections.</span><span class="l-uz">Hisob mantiqi: har bir hamyon qoldig'i, bir nechta xarid jami, butun xabarni bekor qilish va qaytarish, qaytarilganda yopiladigan qarzlar, qoldiqni tuzatish.</span></li>
+          <li><span class="tag tag-sim"><span class="l-en">Simulated</span><span class="l-uz">Simulyatsiya</span></span><span class="l-en">Understanding the message. Production sends it to Gemini with a long Uzbek prompt and checks the result with exact Decimal maths; here a small rule-based parser handles typical sentences. Answers to questions and the “Hisobchi xulosasi” are AI-written in production and templated here. The dollar rate is fixed instead of fetched from the Central Bank.</span><span class="l-uz">Xabarni tushunish. Productionda matn uzun o'zbekcha prompt bilan Gemini'ga yuboriladi va natija aniq Decimal hisob bilan tekshiriladi; bu yerda oddiy jumlalarni kichik qoidaviy parser tushunadi. Savollarga javob va “Hisobchi xulosasi” productionda AI tomonidan yoziladi, bu yerda shablon. Dollar kursi Markaziy bankdan olinmaydi, qat'iy belgilangan.</span></li>
+        </ul>
+      </section>
+      <section>
+        <h2><span class="l-en">Why there is no Telegram link</span><span class="l-uz">Nega Telegram havolasi yo'q</span></h2>
+        <p class="muted"><span class="l-en">The bot is private by design: the first person to press /start creates the only family, and everyone else needs that family's invite link. A stranger gets “this is one family's private bot”, so the demo lives here instead.</span><span class="l-uz">Bot ataylab yopiq: /start ni birinchi bosgan odam yagona oilani yaratadi, qolganlar shu oilaning taklif havolasi bilan qo'shiladi. Begona odam “bu bitta oilaning shaxsiy boti” degan javob oladi, shuning uchun demo shu yerda.</span></p>
+      </section>
+    </aside>
+  </section>
+</main>
+<footer class="site-foot"></footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../../assets/js/tg.js"></script>
+<script src="hamyon.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smena: restaurant staff bot demo | xoliddev</title>
+<meta name="x-title-en" content="Smena: restaurant staff bot demo | xoliddev">
+<meta name="x-title-uz" content="Smena: restoran xodimlari boti demosi | xoliddev">
+<meta name="description" content="A Telegram back-office bot for restaurant staff: job applications, geofenced check-in, advances and a monthly Excel payroll. Interactive browser demo with the bot's real texts.">
+<meta name="theme-color" content="#0b1322">
+<link rel="canonical" href="https://xoliddev.github.io/demos/smena-staff-bot/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="xoliddev">
+<meta property="og:title" content="Smena: restaurant staff bot demo">
+<meta property="og:description" content="A Telegram back-office bot for restaurant staff: job applications, geofenced check-in, advances and a monthly Excel payroll. Interactive browser demo with the bot's real texts.">
+<meta property="og:url" content="https://xoliddev.github.io/demos/smena-staff-bot/">
+<meta property="og:image" content="https://xoliddev.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smena: restaurant staff bot demo">
+<meta name="twitter:description" content="A Telegram back-office bot for restaurant staff: job applications, geofenced check-in, advances and a monthly Excel payroll. Interactive browser demo with the bot's real texts.">
+<meta name="twitter:image" content="https://xoliddev.github.io/assets/img/og.png">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/tg.css">
+<script>(function(){var d=document.documentElement,g=function(k){try{return localStorage.getItem(k)}catch(e){return null}};d.dataset.lang=g('lang')||((navigator.language||'').toLowerCase().indexOf('uz')===0?'uz':'en');d.dataset.theme=g('theme')||'dark';})();</script>
+<style>
+.demo-sim{display:grid;gap:28px;padding:28px var(--gutter) 24px;align-items:start}
+@media(min-width:1120px){.demo-sim{grid-template-columns:minmax(0,1fr) 360px}}
+.sim-side section+section{margin-top:28px}
+.sim-side h2{font-size:19px;margin:0 0 8px}
+#geo{width:100%;height:auto;cursor:crosshair;border-radius:14px;margin:10px 0 8px;border:1px solid var(--line)}
+.g-bg{fill:#dfe8d8}.g-road{stroke:#fff;stroke-width:12;fill:none}.g-river{stroke:#9ec9e8;stroke-width:14;fill:none}.g-block{fill:#c9d6c0}
+.g-radius{fill:rgba(54,197,178,.18);stroke:#0b8576;stroke-width:2;stroke-dasharray:6 5}.g-cafe{fill:#fff;stroke:#0b8576;stroke-width:2}
+.g-pin{fill:#2a7ab9;stroke:#fff;stroke-width:3}#geo-pin.out .g-pin{fill:#d64545}
+.geo-dist{margin:0 0 10px;font-size:15px}
+.range{display:grid;gap:6px;margin:14px 0 6px;font-size:15px}.range input{width:100%;accent-color:var(--accent)}
+.clock{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 4px}
+.excel-sec{padding-bottom:72px}.excel-sec h2{font-size:24px;margin:0 0 8px}.excel-sec .rv{margin-top:36px}
+.excel{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;color:#111}
+.xl-title{font:700 15px/1.3 Arial,sans-serif;color:#1F4E78;text-align:center;padding:12px 10px}
+.xl-scroll{overflow-x:auto}
+.excel table{border-collapse:collapse;width:100%;font:13px/1.35 Arial,sans-serif;min-width:860px}
+.excel th{background:#1F4E78;color:#fff;font-weight:700;padding:8px 6px;border:1px solid #9fb4c8}
+.excel td{padding:6px;border:1px solid #d0d7de}.excel td.n{text-align:right;white-space:nowrap}
+.excel tr.tot td{font-weight:700;background:#eef3f8}
+.xl-note{padding:8px 12px;margin:0;background:#f6f8fa;color:#57606a!important;font-size:13px}
+</style>
+</head>
+<body data-root="../../">
+<header class="site-head"></header>
+<main id="main">
+  <section class="wrap demo-hero">
+    <a class="crumb" href="../../#open-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span class="l-en">All projects</span><span class="l-uz">Barcha loyihalar</span></a>
+    <h1>Smena</h1>
+    <p class="lede l-en">A back-office bot for a restaurant team. Staff apply and check in from Telegram, the GPS check-in only works inside the restaurant's radius, managers hand out advances with a receipt to every admin, and the month closes with an Excel payroll.</p>
+    <p class="lede l-uz">Restoran jamoasi uchun ichki bot. Xodimlar Telegram orqali ariza beradi va ishga keladi, GPS orqali kelish faqat restoran radiusi ichida ishlaydi, rahbar avans beradi va har bir admin xabar oladi, oy Excel hisobot bilan yopiladi.</p>
+    <div class="demo-notice">
+      <p class="l-en"><b>Interactive browser demo.</b> Two Telegram chats, the employee's and the manager's, run side by side in your browser with the bot's real texts and buttons. Locations are fake and chosen on the map. The sample business is “Demo Cafe”.</p>
+      <p class="l-uz"><b>Brauzerdagi interaktiv demo.</b> Ikki Telegram chati, xodimniki va rahbarniki, botning haqiqiy matn va tugmalari bilan brauzeringizda yonma-yon ishlaydi. Joylashuv soxta va xaritada tanlanadi. Namunaviy korxona “Demo Cafe”.</p>
+      <div class="btn-row"><a class="btn btn-small" href="https://github.com/xoliddev/smena-staff-bot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span class="l-en">View code</span><span class="l-uz">Kodni ko'rish</span></a></div>
+    </div>
+  </section>
+  <section class="wrap demo-sim">
+    <div id="roles" class="roles roles-wide" style="--panes:2">
+      <div class="roles-tabs" role="tablist">
+        <button type="button" role="tab" data-tab="worker">🧑‍🍳 <span class="l-en">Employee</span><span class="l-uz">Xodim</span><span class="badge" hidden>0</span></button>
+        <button type="button" role="tab" data-tab="admin">👑 Admin<span class="badge" hidden>0</span></button>
+      </div>
+      <div class="roles-panes">
+        <div data-pane="worker"><p class="pane-label">🧑‍🍳 <span class="l-en">Employee's Telegram</span><span class="l-uz">Xodimning Telegrami</span></p><div id="chat-worker"></div></div>
+        <div data-pane="admin"><p class="pane-label">👑 <span class="l-en">Manager's Telegram</span><span class="l-uz">Rahbarning Telegrami</span></p><div id="chat-admin"></div></div>
+      </div>
+    </div>
+    <aside class="side sim-side">
+      <section>
+        <h2><span class="l-en">1. Apply for the job</span><span class="l-uz">1. Ishga ariza bering</span></h2>
+        <p class="muted"><span class="l-en">In the employee chat, send a name, a phone number and pick a role. The application appears in the admin chat. Press ✅ Ishga Qabul Qilish there.</span><span class="l-uz">Xodim chatida ism, telefon raqam yuboring va lavozimni tanlang. Ariza admin chatida chiqadi, u yerda ✅ Ishga Qabul Qilish ni bosing.</span></p>
+        <div class="chips"><button class="chip" data-w="Ali Valiyev">Ali Valiyev</button><button class="chip" data-w="+998 90 123 45 67">+998 90 123 45 67</button></div>
+        <p class="muted" id="who" aria-live="polite"></p>
+      </section>
+      <section>
+        <h2><span class="l-en">2. Check in with a fake GPS</span><span class="l-uz">2. Soxta GPS bilan ishga keling</span></h2>
+        <p class="muted"><span class="l-en">Click the map to move the phone, then press 🟢 Ishga keldim and share the location. The bot measures the distance with the Haversine formula and refuses check-ins outside the radius.</span><span class="l-uz">Telefonni siljitish uchun xaritani bosing, so'ng 🟢 Ishga keldim ni bosib joylashuvni yuboring. Bot masofani Haversine formulasi bilan hisoblaydi va radiusdan tashqarida qabul qilmaydi.</span></p>
+        <svg id="geo" viewBox="0 0 400 260" role="img" aria-label="Map around Demo Cafe">
+          <rect width="400" height="260" rx="14" class="g-bg"/>
+          <path d="M0 150 H400 M0 60 H400 M120 0 V260 M290 0 V260" class="g-road"/>
+          <path d="M0 230 C120 200 260 250 400 205" class="g-river"/>
+          <rect x="20" y="10" width="80" height="38" rx="4" class="g-block"/><rect x="140" y="80" width="40" height="55" rx="4" class="g-block"/><rect x="310" y="78" width="70" height="56" rx="4" class="g-block"/><rect x="20" y="165" width="85" height="30" rx="4" class="g-block"/><rect x="215" y="165" width="60" height="36" rx="4" class="g-block"/><rect x="310" y="10" width="75" height="38" rx="4" class="g-block"/>
+          <circle id="geo-radius" cx="200" cy="130" r="50" class="g-radius"/>
+          <g transform="translate(200 130)"><rect x="-13" y="-13" width="26" height="26" rx="7" class="g-cafe"/><text y="5" text-anchor="middle" font-size="15">🍽</text></g>
+          <g id="geo-pin"><circle r="9" class="g-pin"/><circle r="3.5" fill="#fff"/></g>
+        </svg>
+        <p id="geo-dist" class="geo-dist" aria-live="polite"></p>
+        <div class="btn-row">
+          <button class="btn btn-small" data-geo="in"><span class="l-en">Put phone inside</span><span class="l-uz">Telefonni ichkariga</span></button>
+          <button class="btn btn-small" data-geo="out"><span class="l-en">Put phone outside</span><span class="l-uz">Telefonni tashqariga</span></button>
+        </div>
+        <label class="range"><span class="l-en">Allowed radius</span><span class="l-uz">Ruxsat etilgan radius</span>: <b><span id="radius-val">100</span> m</b><input id="radius" type="range" min="50" max="500" step="50" value="100"></label>
+        <p class="muted clock"><span class="l-en">Demo clock</span><span class="l-uz">Demo soati</span>: <b id="clock">--:--</b> <button class="btn btn-small" id="skip" type="button"><span class="l-en">Skip ahead 8 hours</span><span class="l-uz">8 soat oldinga</span></button></p>
+        <p class="muted"><span class="l-en">Skip ahead before 🔴 Ishdan ketdim so the shift has a real length.</span><span class="l-uz">🔴 Ishdan ketdim dan oldin vaqtni oldinga suring, shunda smena davomiyligi chiqadi.</span></p>
+      </section>
+      <section>
+        <h2><span class="l-en">3. Give an advance, export the month</span><span class="l-uz">3. Avans bering, oyni eksport qiling</span></h2>
+        <p class="muted"><span class="l-en">In the admin chat: 👥 Xodimlar → pick the employee → 💵 Avans Berish → type 300000 → a comment → ✅. Every admin gets the #AVANS_BERILDI receipt. Then 📊 Excel hisobot builds the monthly payroll below.</span><span class="l-uz">Admin chatida: 👥 Xodimlar → xodimni tanlang → 💵 Avans Berish → 300000 yozing → izoh → ✅. Har bir admin #AVANS_BERILDI xabarini oladi. So'ng 📊 Excel hisobot quyidagi oylik hisobotni tuzadi.</span></p>
+      </section>
+    </aside>
+  </section>
+  <section class="wrap excel-sec">
+    <h2><span class="l-en">Monthly Excel report preview</span><span class="l-uz">Oylik Excel hisobot ko'rinishi</span></h2>
+    <p class="muted"><span class="l-en">Same columns as <code>utils/excel_generator.py</code>: monthly staff get salary ÷ 26 working days per day worked, daily staff get their day rate.</span><span class="l-uz"><code>utils/excel_generator.py</code> dagi ustunlar: oylik xodimga ishlagan har kuni uchun maosh ÷ 26 ish kuni, kunlik xodimga kunlik stavka.</span></p>
+    <div id="excel" class="excel"></div>
+    <h2 class="rv"><span class="l-en">Real vs simulated</span><span class="l-uz">Haqiqiy va simulyatsiya</span></h2>
+    <ul class="real-list">
+      <li><span class="tag tag-real"><span class="l-en">Real</span><span class="l-uz">Haqiqiy</span></span><span class="l-en">Application flow, check-in and check-out messages, the geofence maths, admin notifications (#ISHGA_KELDI, #ISHDAN_KETDI, #AVANS_BERILDI), staff cards, the advance flow, today's attendance and the report columns. The restaurant's name is replaced with the sample “Demo Cafe”.</span><span class="l-uz">Ariza, keldi-ketdi xabarlari, geofence hisobi, admin bildirishnomalari (#ISHGA_KELDI, #ISHDAN_KETDI, #AVANS_BERILDI), xodim kartasi, avans jarayoni, bugungi davomat va hisobot ustunlari. Restoran nomi namunaviy “Demo Cafe” bilan almashtirilgan.</span></li>
+      <li><span class="tag tag-sim"><span class="l-en">Simulated</span><span class="l-uz">Simulyatsiya</span></span><span class="l-en">PostgreSQL, the scheduler (09:00 reminders, report on the 1st) and the real .xlsx file: the staff list is sample data and the file is previewed as a table. Roles CRUD, settings and settlement confirmation are not wired up.</span><span class="l-uz">PostgreSQL, rejalashtiruvchi (09:00 eslatma, 1-sanadagi hisobot) va haqiqiy .xlsx fayl: xodimlar namunaviy, fayl jadval sifatida ko'rsatiladi. Rollar, sozlamalar va raschyotni tasdiqlash ulanmagan.</span></li>
+    </ul>
+  </section>
+</main>
+<footer class="site-foot"></footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../../assets/js/tg.js"></script>
+<script src="smena.js"></script>
+<script src="map.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /demos/qrcodegenerator/page.html
+
+Sitemap: https://xoliddev.github.io/sitemap.xml
