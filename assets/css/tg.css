@@ -13,13 +13,64 @@
   --tg-pattern: rgba(255, 255, 255, .025);
   position: relative;
   display: flex; flex-direction: column;
-  height: min(76vh, 720px); min-height: 520px;
-  border-radius: 26px; overflow: hidden;
+  height: 100%;
+  border-radius: 44px; overflow: hidden;
   background: var(--tg-bg);
-  border: 1px solid var(--line);
   color: var(--tg-text);
   font: 400 15px/1.42 -apple-system, "Segoe UI", Roboto, "Onest", system-ui, sans-serif;
-  box-shadow: 0 30px 80px -40px rgba(0, 0, 0, .7);
+  isolation: isolate;
+}
+
+/* ---- real phone shell (desktop / tablet) ---- */
+.tg-device {
+  --dev-h: min(82vh, 780px);
+  position: relative;
+  height: var(--dev-h); min-height: 560px;
+  aspect-ratio: 392 / 832;            /* modern 19.5:9 phone incl. bezel */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 11px;
+  border-radius: 55px;
+  background: #050506;
+  box-shadow:
+    0 0 0 1.5px #5d6168,               /* polished metal rim */
+    0 0 0 3.5px #24262a,
+    0 0 0 4.5px #6e737b,
+    inset 0 0 0 1px #1c1d20,
+    0 50px 90px -35px rgba(0, 0, 0, .75),
+    0 18px 40px -20px rgba(0, 0, 0, .5);
+}
+.tg-device::before, .tg-device::after {   /* side buttons */
+  content: ""; position: absolute; width: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, #3b3e44, #6e737b 50%, #3b3e44);
+}
+.tg-device::before { left: -8px; top: 18%; height: 7%; box-shadow: 0 calc(var(--dev-h) * .1) 0 #4d5157; }  /* volume up + down */
+.tg-device::after  { right: -8px; top: 26%; height: 10%; }                                                   /* power */
+
+.tg-status {
+  position: relative; z-index: 3; flex: none;
+  height: 46px; padding: 0 30px 0 34px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--tg-head); color: var(--tg-text);
+  font: 600 15px/1 -apple-system, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+  letter-spacing: -.01em;
+}
+.tg-island { position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 31%; max-width: 118px; height: 30px; border-radius: 20px; background: #000; }
+.tg-island::after { content: ""; position: absolute; right: 11px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a3a55 0 25%, #0b0f18 60%); }
+.tg-sicons { display: flex; align-items: center; gap: 5px; }
+.tg-sicons svg { height: 11px; width: auto; fill: currentColor; }
+.tg-batt { position: relative; width: 24px; height: 11.5px; border-radius: 3.5px; border: 1.3px solid currentColor; opacity: .9; }
+.tg-batt::after { content: ""; position: absolute; right: -4px; top: 3px; width: 2px; height: 4px; border-radius: 0 1px 1px 0; background: currentColor; }
+.tg-batt i { position: absolute; inset: 1.5px; right: 22%; border-radius: 1.5px; background: currentColor; }
+.tg-homebar { position: absolute; z-index: 4; left: 50%; bottom: 7px; transform: translateX(-50%); width: 36%; height: 5px; border-radius: 3px; background: var(--tg-text); opacity: .55; pointer-events: none; }
+.tg .tg-bottom { padding-bottom: 18px; }
+
+/* on a real phone the page itself is the phone: drop the shell, use the full width */
+@media (max-width: 600px) {
+  .tg-device { height: min(80svh, 720px); min-height: 480px; aspect-ratio: auto; width: 100%; padding: 0; border-radius: 18px; background: none; box-shadow: 0 20px 50px -30px rgba(0, 0, 0, .6); }
+  .tg-device::before, .tg-device::after, .tg-status, .tg-homebar { display: none; }
+  .tg { border-radius: 18px; border: 1px solid var(--line); }
+  .tg .tg-bottom { padding-bottom: 0; }
 }
 :root[data-theme="light"] .tg {
   --tg-bg: #c9dcb4;
@@ -136,6 +187,11 @@
   .roles-wide .roles-panes { display: grid; grid-template-columns: repeat(var(--panes, 2), minmax(0, 1fr)); gap: 18px; }
   .roles-wide .roles-panes > [data-pane] { display: block; }
   .roles-wide .pane-label { display: block; }
-  .roles-wide .tg { height: 640px; }
+  .roles-wide .tg-device { --dev-h: min(78vh, 700px); }
 }
 .tg-form .tg-kbtoggle[hidden] { display: none; }
+/* real phones hide the scrollbar */
+@media (min-width: 601px) {
+  .tg-device .tg-log { scrollbar-width: none; }
+  .tg-device .tg-log::-webkit-scrollbar { display: none; }
+}

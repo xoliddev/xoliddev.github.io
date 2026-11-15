@@ -13,14 +13,14 @@
 .stack { list-style: none; padding: 0; margin: 30px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--faint); font-size: 15px; }
 .stack li { position: relative; }
 .hero-demo { display: grid; gap: 12px; }
-.hero-chat.tg { height: 520px; min-height: 0; }
+.tg-device:has(> .hero-chat) { --dev-h: 600px; min-height: 0; }
 .hero-chat .tg-bottom, .hero-chat .tg-reset { display: none; }
 .hero-chat .tg-ikb button { pointer-events: none; }
 .scene-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
 .scene-tabs button { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 6px 12px; font-size: 14px; cursor: pointer; }
 .scene-tabs button[aria-current="true"] { color: var(--text); border-color: var(--accent); background: var(--surface); }
 .hero-note { color: var(--faint); font-size: 14px; margin: 0; }
-@media (max-width: 979px) { .hero-chat.tg { height: 460px; } }
+@media (max-width: 979px) { .tg-device:has(> .hero-chat) { --dev-h: 560px; } }
 
 .about { display: grid; gap: 20px; }
 @media (min-width: 900px) { .about { grid-template-columns: 280px 1fr; gap: 48px; } }
@@ -64,3 +64,4 @@
 .contact { display: grid; gap: 14px; justify-items: start; padding-bottom: 24px; }
 .contact h2 { font-size: clamp(28px, 5vw, 48px); max-width: 18ch; }
 .contact-btn { min-height: 52px; padding: 12px 24px; font-size: 16px; }
+@media (max-width: 600px) { .tg-device:has(> .hero-chat) { height: 460px; } }

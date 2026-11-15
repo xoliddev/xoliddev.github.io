@@ -19,7 +19,18 @@
       this.speed = opts.speed || 1;
       this.handlers = { text: null, cb: null, location: null, contact: null };
       root.classList.add("tg");
+      // real-phone shell: metal frame + side buttons around the screen (hidden on actual phones by CSS)
+      if (!root.parentNode.classList.contains("tg-device")) {
+        const dev = document.createElement("div");
+        dev.className = "tg-device";
+        root.parentNode.insertBefore(dev, root);
+        dev.appendChild(root);
+      }
       root.innerHTML =
+        '<div class="tg-status" aria-hidden="true"><span class="tg-clock"></span><span class="tg-island"></span>' +
+        '<span class="tg-sicons"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>' +
+        '<svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2zm0 3.7c1.4 0 2.7.5 3.6 1.4l1.3-1.3A6.9 6.9 0 0 0 8 4a6.9 6.9 0 0 0-4.9 2l1.3 1.3c1-.9 2.2-1.4 3.6-1.4zm0 3.6c-.5 0-1 .2-1.3.6L8 11.4l1.3-1.3c-.3-.4-.8-.6-1.3-.6z"/></svg>' +
+        '<span class="tg-batt"><i></i></span></span></div>' +
         '<div class="tg-head"><div class="tg-ava" aria-hidden="true"></div><div class="tg-title"><b></b><small></small></div>' +
         '<button type="button" class="tg-reset" title="Restart" aria-label="Restart demo">' + RESET + "</button></div>" +
         '<div class="tg-log" role="log" aria-live="polite"></div>' +
@@ -27,7 +38,12 @@
         '<div class="tg-bottom"><div class="tg-rkb" hidden></div>' +
         '<form class="tg-form" autocomplete="off"><button type="button" class="tg-kbtoggle" aria-label="Show keyboard" hidden>' + KB + "</button>" +
         '<input type="text" maxlength="300" aria-label="Message">' +
-        '<button type="submit" class="tg-send" aria-label="Send">' + SEND + "</button></form></div>";
+        '<button type="submit" class="tg-send" aria-label="Send">' + SEND + "</button></form></div>" +
+        '<span class="tg-homebar" aria-hidden="true"></span>';
+      const clock = root.querySelector(".tg-clock");
+      const tick = () => { const d = new Date(); clock.textContent = d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0"); };
+      tick();
+      setInterval(tick, 20000);
       this.log = root.querySelector(".tg-log");
       this.rkb = root.querySelector(".tg-rkb");
       this.input = root.querySelector("input");
