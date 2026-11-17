@@ -71,7 +71,7 @@
     el.innerHTML =
       '<div class="wrap">' +
       "<span>© " + new Date().getFullYear() + " xoliddev · " + bi("Full-stack developer, Uzbekistan", "Full-stack dasturchi, O'zbekiston") + "</span>" +
-      '<a href="https://github.com/xoliddev" rel="me">github.com/xoliddev</a>' +
+      '<a href="https://github.com/xoliddev" rel="me noopener">github.com/xoliddev</a>' +
       "</div>";
   }
 
